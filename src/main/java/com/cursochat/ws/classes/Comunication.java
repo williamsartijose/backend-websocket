@@ -1,7 +1,11 @@
 package com.cursochat.ws.classes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Comunication {
     private String id;
 
@@ -19,6 +23,19 @@ public class Comunication {
 
     @JsonProperty("action") // Mapeia o campo "action" do JSON
     private String action;
+
+    @JsonProperty("color") // Mapeia o campo "positionY" do JSON
+    private String color;
+
+    private String[][] map; // Altere para aceitar um mapa de Strings
+
+    public String[][] getMap() {
+        return map;
+    }
+
+    public void setMap(String[][] map) {
+        this.map = map;
+    }
 
     public Comunication() {}
 
@@ -68,5 +85,13 @@ public class Comunication {
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

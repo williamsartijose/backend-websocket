@@ -20,17 +20,21 @@ public class Player {
     @JsonProperty("score") // Mapeia o campo "positionY" do JSON
     private int score;
 
+    @JsonProperty("color") // Mapeia o campo "positionY" do JSON
+    private String color;
+
     @JsonIgnore // Ignora o campo "session" na serialização
     private WebSocketSession session;
 
     public Player() {}
 
-    public Player(String id, String name, int position_x, int position_y, int score, WebSocketSession session) {
+    public Player(String id, String name, int position_x, int position_y, int score, String color, WebSocketSession session) {
         this.id = id;
         this.name = name;
         this.position_x = position_x;
         this.position_y = position_y;
         this.score = score;
+        this.color = color;
         this.session = session;
     }
 
@@ -41,6 +45,14 @@ public class Player {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getName() {
